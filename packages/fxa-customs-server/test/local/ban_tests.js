@@ -1,6 +1,8 @@
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
+// edit to force testing package
+
 const { assert } = require('chai');
 const sinon = require('sinon');
 const { test } = require('tap');

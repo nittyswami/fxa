@@ -99,7 +99,7 @@ jobs:
           path: artifacts/tests
       - run:
           name: Reporting code coverage...
-          command: bash <(curl -s https://codecov.io/bash) -X gcov
+          command: bash <(curl -s https://codecov.io/bash) -F << parameters.package >> -X gcov
 
   test-many:
     resource_class: medium+
@@ -272,12 +272,12 @@ workflows:
               ignore: main
             tags:
               ignore: /.*/
-      - test-settings-server:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
+#      - test-settings-server:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
       - test-package:
           name: test-auth-server
           package: fxa-auth-server
@@ -286,53 +286,53 @@ workflows:
               ignore: main
             tags:
               ignore: /.*/
-      - test-content-server-0:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
-      - test-content-server-1:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
-      - test-content-server-2:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
-      - test-content-server-3:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
-      - test-content-server-4:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
-      - test-content-server-5:
-          filters:
-            branches:
-              ignore: main
-            tags:
-              ignore: /.*/
-      - test-email-service:
-          # since email-service is expensive
-          # to build and rarely changes
-          # we only run it on branches
-          # starting with "email-service-"
-          filters:
-            branches:
-              only:
-                - /^email-service-.*/
-            tags:
-              ignore: /.*/
+#      - test-content-server-0:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
+#      - test-content-server-1:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
+#      - test-content-server-2:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
+#      - test-content-server-3:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
+#      - test-content-server-4:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
+#      - test-content-server-5:
+#          filters:
+#            branches:
+#              ignore: main
+#            tags:
+#              ignore: /.*/
+#      - test-email-service:
+#          # since email-service is expensive
+#          # to build and rarely changes
+#          # we only run it on branches
+#          # starting with "email-service-"
+#          filters:
+#            branches:
+#              only:
+#                - /^email-service-.*/
+#            tags:
+#              ignore: /.*/
       - build-and-deploy-storybooks:
           filters:
             branches:

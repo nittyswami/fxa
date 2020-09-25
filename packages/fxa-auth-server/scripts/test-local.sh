@@ -23,8 +23,8 @@ if [ -z "$GLOB" ]; then
   echo "Local tests"
   ./scripts/mocha-coverage.js $DEFAULT_ARGS test/local
 
-  echo "Oauth tests"
-  ./scripts/mocha-coverage.js $DEFAULT_ARGS test/oauth
+#  echo "Oauth tests"
+#  ./scripts/mocha-coverage.js $DEFAULT_ARGS test/oauth
 
   echo "Remote tests"
   ./scripts/mocha-coverage.js $DEFAULT_ARGS test/remote
