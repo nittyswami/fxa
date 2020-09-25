@@ -140,7 +140,7 @@ jobs:
             done
       - run:
           name: Reporting code coverage...
-          command: bash <(curl -s https://codecov.io/bash) -X gcov
+          command: bash <(curl -s https://codecov.io/bash) -F many -X gcov
 
   test-settings-server:
     executor: content-server-executor
